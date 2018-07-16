@@ -15,30 +15,6 @@ import {addExpense} from '../actions/expenses';
 
 const store = configureStore();
 
-store.dispatch(addExpense({
-  description: 'Gas bill',
-  amount: 300,
-  createdAt: Date.now()
-}));
-
-store.dispatch(addExpense({
-  description: 'Water bill',
-  amount: 500,
-  createdAt: Date.now()
-}));
-
-store.dispatch(addExpense({
-  description: 'Medical bill',
-  amount: 50000,
-  createdAt: Date.now()
-}));
-
-store.dispatch(addExpense({
-  description: 'Groceries',
-  amount: 1500,
-  createdAt: Date.now()
-}));
-
 class App extends Component {
   render() {
     return (
