@@ -11,7 +11,6 @@ import HelpPage from './HelpPage/HelpPage';
 import NotFoundPage from './NotFoundPage/NotFoundPage';
 import Header from './Header/Header';
 import configureStore from '../store/configureStore';
-import {addExpense} from '../actions/expenses';
 
 const store = configureStore();
 
