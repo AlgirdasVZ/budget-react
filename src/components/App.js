@@ -12,8 +12,10 @@ import NotFoundPage from './NotFoundPage/NotFoundPage';
 import Header from './Header/Header';
 import configureStore from '../store/configureStore';
 import '../firebase/firebase';
+import { startSetExpenses } from '../actions/expenses';
 
 const store = configureStore();
+store.dispatch(startSetExpenses());
 
 class App extends Component {
   render() {
