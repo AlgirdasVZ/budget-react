@@ -11,6 +11,7 @@ import HelpPage from './HelpPage/HelpPage';
 import NotFoundPage from './NotFoundPage/NotFoundPage';
 import Header from './Header/Header';
 import configureStore from '../store/configureStore';
+import '../firebase/firebase';
 
 const store = configureStore();
 
