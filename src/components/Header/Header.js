@@ -9,7 +9,6 @@ export const Header = ({ startLogout }) => (
 
     <StyledNavLink to="/dashboard" activeClassName="is-active">Dashboard</StyledNavLink>
     <StyledNavLink to="/create" activeClassName="is-active">Add Expense</StyledNavLink>
-    <StyledNavLink to="/help" activeClassName="is-active">Help</StyledNavLink>
     <button onClick={startLogout}>Logout</button>
   </header>
 );
