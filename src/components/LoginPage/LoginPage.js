@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { startLogin } from '../../actions/auth';
+import { Redirect} from 'react-router-dom';
+import { firebase } from '../../firebase/firebase';
 
 export class LoginPage extends Component {
   login = () => {
@@ -8,7 +10,9 @@ export class LoginPage extends Component {
   };
 
   render() {
-    return (
+    return this.props.isAuthenticated ? (
+      <Redirect to="/dashboard"/>
+    ) : (
       <div>
         <button onClick={this.login}>Login</button>
       </div>
@@ -16,8 +20,12 @@ export class LoginPage extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  isAuthenticated: !!state.auth.uid
+});
+
 const mapDispatchToProps = (dispatch) => ({
   startLogin: () => dispatch(startLogin())
 });
 
-export default connect(undefined, mapDispatchToProps)(LoginPage);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
