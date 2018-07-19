@@ -1,4 +1,4 @@
-export default (state = 'loaded', action) => {
+export default (state = 'loading', action) => {
   switch(action.type) {
     case 'SET_LOADING':
       return 'loading';
