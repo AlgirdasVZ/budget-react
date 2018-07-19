@@ -5,8 +5,8 @@ const app = express();
 const publicPath = path.join(__dirname, '..', 'build');
 const port = process.env.PORT || 5000;
 
-app.use(express.static(publicPath));
 app.use(compression());
+app.use(express.static(publicPath));
 
 app.get('/*', function (req, res) {
   res.sendFile(path.join(publicPath, 'index.html'));
