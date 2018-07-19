@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import 'react-dates/initialize';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 import ExpenseDashboardPage from './ExpenseDashboardPage/ExpenseDashboardPage';
 import AddExpensePage from './AddExpensePage/AddExpensePage';
 import EditExpensePage from './EditExpensePage/EditExpensePage';
@@ -9,9 +10,11 @@ import LoginPage from './LoginPage/LoginPage';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import withAuthentication from './Session/withAuthentication';
 
-class App extends Component {
-  render() {
-    return (
+const App = (props) => (
+  <div>
+    {props.status === 'loading' ? (
+      <h1>loading</h1>
+    ) : (
       <BrowserRouter>
         <div>
           <Switch>
@@ -23,23 +26,12 @@ class App extends Component {
           </Switch>
         </div>
       </BrowserRouter>
-    );
-  }
-}
+    )}
+  </div>
+);
 
-// firebase.auth().onAuthStateChanged((user) => {
-//   if (user) {
-//     console.log('aa');
-//     store.dispatch(login(user.uid));
-//     store.dispatch(startSetExpenses());
-//     if (history.location.pathname === '/') {
-//       history.push('/dashboard');
-//     }
-//   } else {
-//     console.log('ss');
-//     store.dispatch(logout());
-//     history.push('/');
-//   }
-// });
+const mapStateToProps = (state) => ({
+  status: state.status
+});
 
-export default withAuthentication(App);
+export default withAuthentication(connect(mapStateToProps)(App));

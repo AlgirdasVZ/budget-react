@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { startLogin } from '../../actions/auth';
 import { Redirect} from 'react-router-dom';
-import { firebase } from '../../firebase/firebase';
 
 export class LoginPage extends Component {
   login = () => {
